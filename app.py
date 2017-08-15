@@ -32,7 +32,7 @@ def worker():
             wait_time = data['wait_time']
 
             if not wait_time is None:
-                time.sleep(5 * wait_time)
+                time.sleep(60 * wait_time)
 
             print('name:', threading.current_thread().name)
             line_bot_api.push_message(
