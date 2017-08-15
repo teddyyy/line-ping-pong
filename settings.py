@@ -22,9 +22,6 @@ if channel_secret is None:
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
-# redis
-redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
-
 # response words
 reply_words = []
 with open(YAML_PATH, 'r') as f:
