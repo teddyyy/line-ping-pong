@@ -61,7 +61,7 @@ def decide_wait_time(qsize):
 
     if qsize == 0:
         # generate random time
-        wait_time = random.randint(1, 60)
+        wait_time = random.randint(1, 15)
 
     print("decide_wait_time: %d" %wait_time)
 
