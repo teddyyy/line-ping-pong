@@ -49,6 +49,8 @@ def decide_reply_word(text):
 
     if text == 'ping':
         reply_word = 'pong'
+    elif text == 'うにうに':
+        reply_word = 'いくら'
     elif 'にゃ' in text:
         reply_word = 'にゃー'
     else:
