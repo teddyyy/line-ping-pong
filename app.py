@@ -48,8 +48,8 @@ def decide_reply_word(text):
     reply_word = ''
     echo_word_list = settings.echo_words
 
-    if echo_word_list.has_key(text):
-		reply_word = echo_word_list[text]
+    if text in echo_word_list:
+        reply_word = echo_word_list[text]
     else:
         reply_word = random.choice(settings.reply_words)
 
