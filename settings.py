@@ -5,7 +5,8 @@ import sys
 import yaml
 from linebot import LineBotApi, WebhookHandler
 
-YAML_PATH = './config/reply.yml'
+REPLY_PATH = './config/reply.yml'
+ECHO_PATH = './config/echo.yml'
 
 # LINE
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
@@ -22,8 +23,14 @@ if channel_secret is None:
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
-# response words
+# reply words
 reply_words = []
-with open(YAML_PATH, 'r') as f:
+with open(REPLY_PATH, 'r') as f:
     text = f.read()
     reply_words = yaml.load(text)
+
+# echo words
+echo_words = {}
+with open(ECHO_PATH, 'r') as f:
+    text = f.read()
+    echo_words = yaml.load(text)

@@ -46,13 +46,10 @@ def worker():
 
 def decide_reply_word(text):
     reply_word = ''
+    echo_word_list = settings.echo_words
 
-    if text == 'ping':
-        reply_word = 'pong'
-    elif text == 'うにうに':
-        reply_word = 'いくら'
-    elif 'にゃ' in text:
-        reply_word = 'にゃー'
+    if echo_word_list.has_key(text):
+		reply_word = echo_word_list[text]
     else:
         reply_word = random.choice(settings.reply_words)
 
