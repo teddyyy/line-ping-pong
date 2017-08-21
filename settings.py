@@ -25,12 +25,12 @@ handler = WebhookHandler(channel_secret)
 
 # reply words
 reply_words = []
-with open(REPLY_PATH, 'r') as f:
+with open(REPLY_PATH, 'r', encoding='utf-8') as f:
     text = f.read()
     reply_words = yaml.load(text)
 
 # echo words
 echo_words = {}
-with open(ECHO_PATH, 'r') as f:
+with open(ECHO_PATH, 'r', encoding='utf-8') as f:
     text = f.read()
     echo_words = yaml.load(text)
