@@ -59,11 +59,14 @@ def decide_reply_word(text):
     echo_word_list = settings.echo_words
 
     if text in echo_word_list:
+        # full match
         reply_word = echo_word_list[text]
     else:
+        # partial match
         reply_word = is_include_reply_word(text)
 
     if reply_word == '':
+        # not match
         reply_word = random.choice(settings.reply_words)
 
     return reply_word
