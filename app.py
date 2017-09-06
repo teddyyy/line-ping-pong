@@ -44,6 +44,16 @@ def worker():
 
         time.sleep(60)
 
+def is_include_reply_word(text):
+    match_word_list = settings.match_words
+    match_keys = match_word_list.keys()
+
+    for key in match_keys:
+        if key in text:
+            return match_word_list[key]
+
+    return ''
+
 def decide_reply_word(text):
     reply_word = ''
     echo_word_list = settings.echo_words
@@ -51,6 +61,9 @@ def decide_reply_word(text):
     if text in echo_word_list:
         reply_word = echo_word_list[text]
     else:
+        reply_word = is_include_reply_word(text)
+
+    if reply_word == '':
         reply_word = random.choice(settings.reply_words)
 
     return reply_word

@@ -7,6 +7,7 @@ from linebot import LineBotApi, WebhookHandler
 
 REPLY_PATH = './config/reply.yml'
 ECHO_PATH = './config/echo.yml'
+MATCH_PATH = './config/match.yml'
 
 # LINE
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
@@ -34,3 +35,9 @@ echo_words = {}
 with open(ECHO_PATH, 'r', encoding='utf-8') as f:
     text = f.read()
     echo_words = yaml.load(text)
+
+# match words
+match_words = {}
+with open(MATCH_PATH, 'r', encoding='utf-8') as f:
+    text = f.read()
+    match_words = yaml.load(text)
